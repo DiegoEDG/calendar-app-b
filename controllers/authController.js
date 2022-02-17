@@ -9,33 +9,21 @@ const renewToken = (req, res = response) => {
 };
 
 const login = (req, res = response) => {
-	const errors = validationResult(req);
-
-	if (!errors.isEmpty()) {
-		return res.status(400).json({
-			ok: false,
-			errors: errors.mapped()
-		});
-	}
-	res.json({
+	const { body } = req;
+	res.status(200).json({
 		ok: true,
-		msg: 'login'
+		msg: 'login',
+		body
 	});
 };
 
 const newUser = (req, res = response) => {
-	const errors = validationResult(req);
+	const { body } = req;
 
-	if (!errors.isEmpty()) {
-		return res.status(400).json({
-			ok: false,
-			errors: errors.mapped()
-		});
-	}
-
-	res.json({
+	res.status(201).json({
 		ok: true,
-		msg: 'register'
+		msg: 'register',
+		body
 	});
 };
 
