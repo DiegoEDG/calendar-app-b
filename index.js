@@ -7,8 +7,11 @@ const app = express();
 // Acceso al directorio publico
 app.use(express.static('public'));
 
+// Parsear body
+app.use(express.json());
+
 // Rutas
-app.use('/api/auth', require('./routes/auth'));
+app.use('/api/auth', require('./routes/authRoutes'));
 
 // Escuchar peticiones
 app.listen(process.env.PORT, () => {
